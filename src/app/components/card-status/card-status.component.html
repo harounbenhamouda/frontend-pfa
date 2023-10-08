@@ -1,0 +1,6 @@
+<a routerLink="/purchase">
+<div  *ngIf="isAuthenticatedUser()" class="statusCard">
+    <span class="span">{{orderprice| currency: '$' }}<i class="fas fa-coins"></i> | {{ordersize}}</span>
+    <i class="fas fa-cart-arrow-down"></i>
+  </div>
+</a>

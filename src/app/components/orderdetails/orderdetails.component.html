@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="oneOrder">
+      <div class="mycard order-item" >
+        <img src="assets/img/{{orders.img}}" alt="Denim Jeans" style="width:100%">
+        <h1>{{orders.nameOrder}}</h1>
+        <h3>{{orders.description}}</h3>
+        <p class="price">{{orders.price | currency: 'USD'}}</p>
+        <button  (click)="addtocart(orders)" class="btn btn-primary orbut">Add to Card</button>
+      </div>
+    </div>
+  </div>

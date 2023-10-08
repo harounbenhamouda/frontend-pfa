@@ -1,0 +1,13 @@
+<ul   class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+    <li *ngIf="isAuthenticatedUser()" class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Categories
+    </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+        <a *ngFor="let category of categories" class="dropdown-item" routerLinkActive="menu-active" routerLink="category/{{category.id}}">{{category.nameCategory}}</a>
+       
+      </div>
+    </li>
+
+  </ul>

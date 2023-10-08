@@ -1,0 +1,26 @@
+<div class="row">
+    <div *ngFor="let temp of orders" class="col-md-4 myorder buyingorder" >
+      <div class="card order-item" style="height: auto; width: 100%">
+        <div class="totprice" style="z-index: 2">{{temp.price * temp.quantity | currency: 'USD'}}</div>
+        <div class="totprice to2"  style="z-index: 2"> {{temp.price | currency: 'USD'}}</div>
+        <div style="position: relative;height: 300px;width: 100%;overflow: hidden;">
+          <img src="assets/img/{{temp.img}}" alt="Denim Jeans" style="position: absolute;width: 100%;top: 50%;bottom: 50%;transform: translate(-50%, -50%);z-index: 1">
+        </div>
+        <h1>{{temp.nameOrder}}</h1>
+        <p class="price">
+          <i class="fa fa-plus" aria-hidden="true" (click)="addorder(temp)"></i>
+          <span>{{temp.quantity}}</span>
+          <i class="fa fa-minus" aria-hidden="true" (click)="removeorder(temp)"></i>
+        <button  (click)="removeholeorder(temp)"class="btn btn-primary mybu" style="background-color: #FFF3E0;color:grey ;">Remove</button>
+      </div>
+    </div>
+  
+  </div>
+  <div *ngIf="orders?.length == 0" class="alert alert-danger" role="alert"  style="margin-top:100px;">
+    No Orders Found
+  </div>
+  <div class="check-out">
+    <div class="size">Total Order : {{totalorder}}</div>
+  <div class="totalprice">Total Price : {{totalprice | currency: 'USD'}}</div>
+      <button  *ngIf="orders.length !== 0" type="button" class="btn btn-primary done" (click)="checkout()" style="background-color: #FFF3E0;color:grey ;">Check Out</button>
+  </div>

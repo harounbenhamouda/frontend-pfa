@@ -1,0 +1,44 @@
+<div class="row">
+    <div  *ngFor="let order of orders" class="col-md-4 myorder">
+      <div class="card order-item" style="height: auto; background-color: beige;">
+        <a routerLink="/foodbyid/{{order.id}}">
+          <div style="position: relative;height: 300px;width: 100%;overflow: hidden;">
+            <img src="../assets/img//{{order.img}} "  alt="Denim Jeans" style="position: absolute;width: 100%;top: 50%;bottom: 50%;transform: translate(-50%, -50%);">
+
+          </div>
+        
+      </a>
+      
+      <a routerLink="/foodbyid/{{order.id}}">
+        <h1>{{order.nameOrder}}</h1>
+      </a>
+
+        <p class="price">{{order.price| currency: '$'}}</p>
+       
+        <p class="dis"  style="height:100px ;">{{order.description}}</p>
+        <button (click)="addToCart(order)" class="btn btn-primary mybu" style="background-color: #FFF3E0;color:grey ;">Add to Cart</button>
+      </div>
+    </div>
+    <div class="col-md-9 pag" style="padding-left: 30%">
+      <ngb-pagination 
+      [(page)]="page"
+      [pageSize]="pageLength"
+      [collectionSize]="orderSize"
+      (pageChange)="doing()"
+      [maxsize]="5"
+      [boundryLinks]="true">
+
+      </ngb-pagination>
+      <div class="sel">
+        <span class="mr-2">Page Size</span>
+        <select (change)="pageSize($event)">
+          <option>2</option>
+          <option>5</option>
+          <option selected="true">10</option>
+          <option>20</option>
+          <option>50</option>
+        </select>
+      </div>
+
+  </div>    
+</div>
